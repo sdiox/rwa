@@ -132,7 +132,7 @@ class RWA(Recurrent):
 
         batch_size = input_shape[0] if self.stateful else None
         self.input_dim = input_shape[2]
-        self.input_spec[0] = InputSpec(shape=(batch_size, None, self.input_dim))
+        self.input_spec = InputSpec(shape=(batch_size, None, self.input_dim))
         #states: h, d, n, a_max
         state_shape = (batch_size, None, self.units) if self.stateful else (batch_size, self.units)
         self.state_spec = [InputSpec(shape=state_shape),
